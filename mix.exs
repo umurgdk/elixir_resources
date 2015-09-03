@@ -18,12 +18,12 @@ defmodule ElixirResources.Mixfile do
   def application do
     [mod: {ElixirResources, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :eredis, :exq, :quantum]]
   end
 
   # Specifies which paths to compile per environment
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
-  defp elixirc_paths(_),     do: ["lib", "web"]
+  defp elixirc_paths(_),     do: ["lib", "web", "workers"]
 
   # Specifies your project dependencies
   #
@@ -35,6 +35,7 @@ defmodule ElixirResources.Mixfile do
      {:phoenix_html, "~> 2.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
-     {:exq, "~> 0.2.1"}]
+     {:exq, "~> 0.2.1"},
+     {:quantum, ">= 1.4.0"}]
   end
 end
