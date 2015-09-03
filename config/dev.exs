@@ -39,3 +39,13 @@ config :elixir_resources, ElixirResources.Repo,
   password: "postgres",
   database: "elixir_resources_dev",
   pool_size: 10
+
+config :exq,
+  host: "127.0.0.1",
+  port: 6379,
+  namespace: "jobqueue",
+  queues: ["default"],
+  poll_timeout: 50,
+  scheduler_enable: false,
+  scheduler_poll_timeout: 200
+
