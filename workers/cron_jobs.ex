@@ -6,5 +6,6 @@ defmodule ElixirResources.Workers.CronJobs do
 
   def look_rss do
     IO.puts "Looking for rss feeds..."
+    Exq.enqueue :exq, "aggregator", "ElixirResources.Workers.RSSWorker", []
   end
 end
