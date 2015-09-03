@@ -15,7 +15,7 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :elixir_resources, ElixirResources.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
+  username: "elixir_resources",
   password: "postgres",
   database: "elixir_resources_test",
   pool: Ecto.Adapters.SQL.Sandbox

@@ -35,7 +35,7 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :elixir_resources, ElixirResources.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "umur",
+  username: "elixir_resources",
   password: "postgres",
   database: "elixir_resources_dev",
   pool_size: 10
