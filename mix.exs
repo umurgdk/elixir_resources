@@ -17,13 +17,14 @@ defmodule ElixirResources.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {ElixirResources, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex, :feeder_ex, :httpoison]]
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :phoenix_ecto, :postgrex,
+		 								:eredis, :exq, :quantum,
+										:feeder_ex, :httpoison]]
   end
 
   # Specifies which paths to compile per environment
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
-  defp elixirc_paths(_),     do: ["lib", "web"]
+  defp elixirc_paths(_),     do: ["lib", "web", "workers"]
 
   # Specifies your project dependencies
   #
@@ -37,6 +38,7 @@ defmodule ElixirResources.Mixfile do
      {:cowboy, "~> 1.0"},
      {:exq, "~> 0.2.1"},
 	   {:feeder_ex, "~> 0.0.2"},
-	 	 {:httpoison, "~> 0.7.2"}]
+	 	 {:httpoison, "~> 0.7.2"},
+	 	 {:quantum, ">= 1.4.0"}]
   end
 end

@@ -22,3 +22,18 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+config :quantum, cron: [
+  "* * * * *": {"ElixirResources.Workers.CronJobs", :look_youtube}
+]
+
+config :exq,
+  host: '127.0.0.1',
+  port: 6379,
+  #password: "optional_redis_auth",
+  namespace: "exq",
+  concurrency: :infinite,
+  queues: ["aggregator"],
+  poll_timeout: 5,
+  scheduler_enable: true,
+  scheduler_poll_timeout: 5
