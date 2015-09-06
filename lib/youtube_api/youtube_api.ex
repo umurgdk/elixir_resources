@@ -10,7 +10,7 @@ defmodule YoutubeApi do
     ])
   end
 
-  defp make_request(path, parameters) do
+  defp make_request(path, parameters \\ []) do
     url = "#{@base_url}#{path}"
     parameters_with_apikey = parameters ++ [key: @api_key]
 

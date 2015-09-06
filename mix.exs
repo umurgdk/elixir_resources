@@ -18,8 +18,8 @@ defmodule ElixirResources.Mixfile do
   def application do
     [mod: {ElixirResources, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :phoenix_ecto, :postgrex,
-		 								:eredis, :exq, :quantum,
-										:feeder_ex, :httpoison]]
+       :eredis, :exq, :quantum,
+       :feeder_ex, :httpoison]]
   end
 
   # Specifies which paths to compile per environment
@@ -37,8 +37,9 @@ defmodule ElixirResources.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
      {:exq, "~> 0.2.1"},
-	   {:feeder_ex, "~> 0.0.2"},
-	 	 {:httpoison, "~> 0.7.2"},
-	 	 {:quantum, ">= 1.4.0"}]
+     {:feeder_ex, "~> 0.0.2"},
+     {:httpoison, "~> 0.7.2"},
+     {:quantum, ">= 1.4.0"},
+     {:eh, only: :dev}]
   end
 end
