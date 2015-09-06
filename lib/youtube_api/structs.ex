@@ -19,4 +19,13 @@ defmodule YoutubeApi.Video do
       thumbnails: thumbnails
     }
   end
+
+  def get_best_thumbnail(video) do
+    cond do
+      Dict.has_key? video.thumbnails, :high    -> video.thumbnails[:high]
+      Dict.has_key? video.thumbnails, :medium  -> video.thumbnails[:medium]
+      Dict.has_key? video.thumbnails, :default -> video.thumbnails[:default]
+      true -> nil
+    end
+  end
 end

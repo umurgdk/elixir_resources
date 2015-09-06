@@ -24,7 +24,7 @@ config :logger, :console,
 import_config "#{Mix.env}.exs"
 
 config :quantum, cron: [
-  "* * * * *": {"ElixirResources.Workers.CronJobs", :look_youtube},
+  "* * * * *": {"ElixirResources.Workers.CronJobs", :look_videos},
   "* * * * *": {"ElixirResources.Workers.CronJobs", :look_rss},
 ]
 
