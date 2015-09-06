@@ -6,7 +6,7 @@ defmodule ElixirResources.Workers.YoutubeWorker do
     IO.puts "YoutubeWorker fetching youtube videos..."
 
     Enum.each YoutubeApi.search("elixir,programming"), fn(video) ->
-      unless Repo.get_by(Video, video_id: video.id) do
+      #unless Repo.get_by(Video, video_id: video.id) do
         changeset = Video.changeset(%Video{}, %{
           provider: "youtube",
           video_id: video.id,
@@ -17,11 +17,12 @@ defmodule ElixirResources.Workers.YoutubeWorker do
 
         case Repo.insert(changeset) do
           {:ok, video}         -> IO.puts "Video titled '#{video.title}' has beed added."
+          {:error, %{errors: [video_id: "has already been taken"]}} -> :ok
           {:error, error_changeset} ->
             IO.puts "Failed to write:"
             IO.inspect(error_changeset)
         end
-      end
+      #end
     end
   end
 end

@@ -13,6 +13,7 @@ defmodule YoutubeApi do
       part: "snippet",
       order: "date",
       maxResults: max_results,
+      videoCategoryId: "UCiDF_uaU1V00dAc8ddKvNxA",
       type: "video"
     ])
 
