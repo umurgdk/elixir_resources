@@ -1,18 +1,16 @@
-defmodule ElixirResources.RssResource do
-	
-	alias ElixirResources.RssResource
-	alias ElixirResources.Repo
-	
+defmodule ElixirResources.RssArticle do
   use ElixirResources.Web, :model
 
-  schema "rss_resources" do
+  schema "rss_articles" do
+    field :title, :string
     field :url, :string
+    field :description, :string
 
     timestamps
   end
 
-  @required_fields ~w(url)
-  @optional_fields ~w()
+  @required_fields ~w(title url)
+  @optional_fields ~w(description)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -23,7 +21,5 @@ defmodule ElixirResources.RssResource do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
-    |> validate_length(:url, min: 5)
   end
-  
 end
