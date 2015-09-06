@@ -15,11 +15,12 @@ defmodule ElixirResources.Workers.RSSWorker do
 		
 		Enum.each feed.entries, fn(entry) ->
 
-			unless Repo.get_by(RssArticle, url: entry.link) do
-
+			unless entry.link != nil && Repo.get_by(RssArticle, url: entry.link) do
+				
 				changeset = RssArticle.changeset(%RssArticle{}, %{
 					title: entry.title,
-					url: entry.link
+					url: entry.link,
+					description: entry.summary
 				})
 
 				case Repo.insert(changeset) do
