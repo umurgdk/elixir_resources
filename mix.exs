@@ -23,7 +23,7 @@ defmodule ElixirResources.Mixfile do
   end
 
   # Specifies which paths to compile per environment
-  defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
+  defp elixirc_paths(:test), do: ["lib", "web", "test/support", "test/youtube_api"]
   defp elixirc_paths(_),     do: ["lib", "web", "workers"]
 
   # Specifies your project dependencies
@@ -40,6 +40,8 @@ defmodule ElixirResources.Mixfile do
      {:feeder_ex, "~> 0.0.2"},
      {:httpoison, "~> 0.7.2"},
      {:quantum, ">= 1.4.0"},
-     {:eh, only: :dev}]
+     {:eh, only: :dev},
+     {:mix_test_watch, "~> 0.2", only: :dev},
+     {:mock, "~> 0.1.1", only: :test}]
   end
 end
